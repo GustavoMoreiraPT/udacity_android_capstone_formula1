@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Formula1</string>
     <string name="title_activity_maps">Map</string>
+    <string name="constructor_name">Constructor name</string>
+    <string name="constructor_nationality">Constructor nationality</string>
+    <string name="constructor_url">Constructor URL</string>
+    <string name="driver_code">Driver code</string>
+    <string name="driver_url">Driver url</string>
+    <string name="driver_number">Driver number</string>
+    <string name="driver_given_name">Driver given name</string>
+    <string name="driver_family_name">Driver family name</string>
+    <string name="driver_date_of_birth">Driver date of birth</string>
+    <string name="driver_nationality">Driver nationality</string>
+    <string name="constructor_of_the_week">Constructor of the week</string>
+    <string name="driver_of_the_week">Driver of the week</string>
 </resources>

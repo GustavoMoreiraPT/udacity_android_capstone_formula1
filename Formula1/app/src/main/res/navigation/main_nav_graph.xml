@@ -1,5 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.udacity.capstone.formula1.main.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_mainDriverFragment"
+            app:destination="@id/mainDriverFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_mainConstructorFragment"
+            app:destination="@id/mainConstructorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainConstructorFragment"
+        android:name="com.udacity.capstone.formula1.main.MainConstructorFragment"
+        android:label="MainConstructorFragment" >
+        <action
+            android:id="@+id/action_mainConstructorFragment_to_constructorDetailFragment"
+            app:destination="@id/constructorDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainDriverFragment"
+        android:name="com.udacity.capstone.formula1.main.MainDriverFragment"
+        android:label="MainDriverFragment" >
+        <action
+            android:id="@+id/action_mainDriverFragment_to_driverDetailFragment"
+            app:destination="@id/driverDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/constructorDetailFragment"
+        android:name="com.udacity.capstone.formula1.detail.ConstructorDetailFragment"
+        android:label="ConstructorDetailFragment" />
+    <fragment
+        android:id="@+id/driverDetailFragment"
+        android:name="com.udacity.capstone.formula1.detail.DriverDetailFragment"
+        android:label="DriverDetailFragment" />
 </navigation>

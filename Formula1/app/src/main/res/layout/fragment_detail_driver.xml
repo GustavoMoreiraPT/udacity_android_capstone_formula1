@@ -83,7 +83,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:textColor="@color/default_text_color"
-                            android:text="@{driver.permanentNumber}"
+                            app:permanentNumber="@{driver.permanentNumber}"
                             tools:text="25.126 au" />
                     </LinearLayout>
 

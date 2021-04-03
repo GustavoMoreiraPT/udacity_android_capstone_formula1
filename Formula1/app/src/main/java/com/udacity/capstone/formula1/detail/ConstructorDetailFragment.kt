@@ -17,6 +17,10 @@ class ConstructorDetailFragment : Fragment() {
         val binding = FragmentDetailConstructorBinding.inflate(inflater)
         binding.lifecycleOwner = this
 
+        val constructor = ConstructorDetailFragmentArgs.fromBundle(requireArguments()).selectedConstructor
+
+        binding.constructor = constructor
+
         return binding.root
     }
 }

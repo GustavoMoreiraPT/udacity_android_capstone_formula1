@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_mainFragment_to_mainConstructorFragment"
             app:destination="@id/mainConstructorFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_grandPrixFragment"
+            app:destination="@id/grandPrixFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainConstructorFragment"
@@ -50,5 +53,13 @@
         <argument
             android:name="selectedDriver"
             app:argType="com.udacity.capstone.formula1.dto.Driver"/>
+    </fragment>
+    <fragment
+        android:id="@+id/grandPrixFragment"
+        android:name="com.udacity.capstone.formula1.location.GrandPrixFragment"
+        android:label="GrandPrixFragment" >
+        <action
+            android:id="@+id/action_grandPrixFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

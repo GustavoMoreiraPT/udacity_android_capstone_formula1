@@ -5,6 +5,8 @@ import androidx.lifecycle.Transformations
 import com.udacity.capstone.formula1.api.*
 import com.udacity.capstone.formula1.dto.Constructor
 import com.udacity.capstone.formula1.dto.Driver
+import com.udacity.capstone.formula1.dto.FavoriteLocation
+import com.udacity.capstone.formula1.database.FavoriteLocation as FavoriteLocationEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
@@ -16,6 +18,9 @@ class Repository(private val database: F1Database) {
 
     val allDrivers: LiveData<List<Driver>> =
         Transformations.map(database.f1DatabaseDao.getAllDrivers()) { it.toDTO() }
+
+    val allFavoriteLocations: LiveData<List<FavoriteLocation>> =
+        Transformations.map(database.f1DatabaseDao.getAllFavoriteLocations()) { it.toDTO() }
 
     suspend fun updateConstructors() {
         withContext(Dispatchers.IO) {
@@ -36,6 +41,12 @@ class Repository(private val database: F1Database) {
 
             database.f1DatabaseDao.clearDrivers()
             dbDrivers.forEach { database.f1DatabaseDao.insertDriver(it) }
+        }
+    }
+
+    suspend fun insertFavoriteLocation(location: FavoriteLocationEntity) {
+        withContext(Dispatchers.IO) {
+            database.f1DatabaseDao.insertFavoriteLocation(location)
         }
     }
 }

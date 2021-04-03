@@ -10,7 +10,6 @@ import androidx.lifecycle.viewModelScope
 import com.udacity.capstone.formula1.database.Repository
 import com.udacity.capstone.formula1.dto.Constructor
 import com.udacity.capstone.formula1.dto.Driver
-import com.udacity.capstone.formula1.dto.Picture
 import kotlinx.coroutines.launch
 
 @RequiresApi(Build.VERSION_CODES.O)

@@ -11,7 +11,7 @@
         <Button
             android:id="@+id/button_constructors"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="180dp"
             android:text="Constructors"
             app:backgroundTint="@color/design_default_color_error"
             tools:layout_editor_absoluteX="16dp"
@@ -22,7 +22,7 @@
         <Button
             android:id="@+id/button_drivers"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="180dp"
             android:layout_marginTop="3dp"
             android:text="Drivers"
             app:layout_constraintBottom_toTopOf="@+id/button_constructors"
@@ -31,10 +31,18 @@
         <Button
             android:id="@+id/button_grandprix"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="180dp"
             android:text="Find a Grand Prix"
             app:backgroundTint="@color/material_on_background_emphasis_high_type"
             app:layout_constraintTop_toBottomOf="@+id/button_constructors" />
+
+        <Button
+            android:id="@+id/button_about"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:text="About the app"
+            app:backgroundTint="@android:color/holo_green_light"
+            app:layout_constraintTop_toBottomOf="@+id/button_grandprix" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

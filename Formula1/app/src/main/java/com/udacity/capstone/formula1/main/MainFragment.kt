@@ -49,6 +49,10 @@ class MainFragment : Fragment() {
             this.findNavController().navigate(MainFragmentDirections.actionMainFragmentToMainConstructorFragment())
         }
 
+        binding.buttonGrandprix.setOnClickListener {
+            this.findNavController().navigate(MainFragmentDirections.actionMainFragmentToGrandPrixFragment())
+        }
+
         return binding.root
     }
 }

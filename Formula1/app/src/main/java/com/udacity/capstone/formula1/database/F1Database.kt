@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Driver::class, Constructor::class], version = 1, exportSchema = false)
+@Database(entities = [Driver::class, Constructor::class, FavoriteLocation::class], version = 2, exportSchema = false)
 abstract class F1Database : RoomDatabase() {
 
     abstract val f1DatabaseDao: F1DatabaseDao

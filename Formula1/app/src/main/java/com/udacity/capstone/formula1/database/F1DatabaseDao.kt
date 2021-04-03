@@ -2,6 +2,7 @@ package com.udacity.capstone.formula1.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import retrofit2.http.GET
 
 @Dao
 interface F1DatabaseDao {
@@ -37,4 +38,11 @@ interface F1DatabaseDao {
 
     @Query("SELECT * FROM driver_info_table ORDER BY id DESC")
     fun getAllDrivers(): LiveData<List<Driver>>
+
+    // Favorite Locations
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertFavoriteLocation(favoriteLocation: FavoriteLocation)
+
+    @Query("SELECT * FROM locations_info_table ORDER BY id DESC")
+    fun getAllFavoriteLocations() : LiveData<List<FavoriteLocation>>
 }

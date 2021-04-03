@@ -1,6 +1,7 @@
 package com.udacity.capstone.formula1.adapters
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import com.squareup.picasso.Picasso
@@ -13,10 +14,10 @@ fun bindDetailsConstructorSymbol(imageView: ImageView, name: String) {
         "Ferrari" -> imageView.setImageResource(R.drawable.ferrari)
         "Haas F1 Team" -> imageView.setImageResource(R.drawable.haas)
         "McLaren" -> imageView.setImageResource(R.drawable.mclaren)
-        "Racing Point" -> imageView.setImageResource(R.drawable.astonmartin)
+        "Aston Martin" -> imageView.setImageResource(R.drawable.astonmartin)
         "Red Bull" -> imageView.setImageResource(R.drawable.redbull)
         "Renault" -> imageView.setImageResource(R.drawable.alpine)
-        "Toro Rosso" -> imageView.setImageResource(R.drawable.alphatauri)
+        "AlphaTauri" -> imageView.setImageResource(R.drawable.alphatauri)
         "Mercedes" -> imageView.setImageResource(R.drawable.mercedes)
         "Williams" -> imageView.setImageResource(R.drawable.williams)
         else -> imageView.setImageResource(R.drawable.f1_main_logo)
@@ -26,26 +27,26 @@ fun bindDetailsConstructorSymbol(imageView: ImageView, name: String) {
 @BindingAdapter("driverImage")
 fun bindDetailsDriverImage(imageView: ImageView, name: String){
     when(name){
-        "Alonso" -> imageView.setImageResource(R.drawable.alonso)
-        "Bottas" -> imageView.setImageResource(R.drawable.bottas)
-        "Gasly" -> imageView.setImageResource(R.drawable.gasly)
-        "Giovinazzi" -> imageView.setImageResource(R.drawable.giovinazzi)
-        "Hamilton" -> imageView.setImageResource(R.drawable.hamilton)
-        "Latifi" -> imageView.setImageResource(R.drawable.latifi)
-        "Leclerc" -> imageView.setImageResource(R.drawable.leclerc)
-        "Mazepin" -> imageView.setImageResource(R.drawable.mazepin)
-        "Norris" -> imageView.setImageResource(R.drawable.norris)
-        "Ocon" -> imageView.setImageResource(R.drawable.ocon)
-        "Pérez" -> imageView.setImageResource(R.drawable.perez)
-        "Räikkönen" -> imageView.setImageResource(R.drawable.raikonnen)
-        "Ricciardo" -> imageView.setImageResource(R.drawable.ricciardo)
-        "Russell" -> imageView.setImageResource(R.drawable.russell)
-        "Sainz" -> imageView.setImageResource(R.drawable.sainz)
-        "Schumacher" -> imageView.setImageResource(R.drawable.schumacher)
-        "Stroll" -> imageView.setImageResource(R.drawable.stroll)
-        "Tsunoda" -> imageView.setImageResource(R.drawable.tsunoda)
-        "Verstappen" -> imageView.setImageResource(R.drawable.verstappen)
-        "Vettel" -> imageView.setImageResource(R.drawable.vettel)
+        "alonso" -> imageView.setImageResource(R.drawable.alonso)
+        "bottas" -> imageView.setImageResource(R.drawable.bottas)
+        "gasly" -> imageView.setImageResource(R.drawable.gasly)
+        "giovinazzi" -> imageView.setImageResource(R.drawable.giovinazzi)
+        "hamilton" -> imageView.setImageResource(R.drawable.hamilton)
+        "latifi" -> imageView.setImageResource(R.drawable.latifi)
+        "leclerc" -> imageView.setImageResource(R.drawable.leclerc)
+        "mazepin" -> imageView.setImageResource(R.drawable.mazepin)
+        "norris" -> imageView.setImageResource(R.drawable.norris)
+        "ocon" -> imageView.setImageResource(R.drawable.ocon)
+        "perez" -> imageView.setImageResource(R.drawable.perez)
+        "raikkonen" -> imageView.setImageResource(R.drawable.raikonnen)
+        "ricciardo" -> imageView.setImageResource(R.drawable.ricciardo)
+        "russell" -> imageView.setImageResource(R.drawable.russell)
+        "sainz" -> imageView.setImageResource(R.drawable.sainz)
+        "mick_schumacher" -> imageView.setImageResource(R.drawable.schumacher)
+        "stroll" -> imageView.setImageResource(R.drawable.stroll)
+        "tsunoda" -> imageView.setImageResource(R.drawable.tsunoda)
+        "max_verstappen" -> imageView.setImageResource(R.drawable.verstappen)
+        "vettel" -> imageView.setImageResource(R.drawable.vettel)
         else -> imageView.setImageResource(R.drawable.f1_main_logo)
     }
 }
@@ -58,4 +59,10 @@ fun bindImage(imgView: ImageView, imgUrl: String?){
             .load(imgUri)
             .into(imgView)
     }
+}
+
+@BindingAdapter("permanentNumber")
+fun bindTextViewToPermanentNumber(textView: TextView, number: Int) {
+    val context = textView.context
+    textView.text = number.toString()
 }

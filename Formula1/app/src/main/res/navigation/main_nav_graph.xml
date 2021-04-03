@@ -34,9 +34,21 @@
     <fragment
         android:id="@+id/constructorDetailFragment"
         android:name="com.udacity.capstone.formula1.detail.ConstructorDetailFragment"
-        android:label="ConstructorDetailFragment" />
+        android:label="ConstructorDetailFragment">
+
+        <argument
+            android:name="selectedConstructor"
+            app:argType="com.udacity.capstone.formula1.dto.Constructor"/>
+    </fragment>
+
+
     <fragment
         android:id="@+id/driverDetailFragment"
         android:name="com.udacity.capstone.formula1.detail.DriverDetailFragment"
-        android:label="DriverDetailFragment" />
+        android:label="DriverDetailFragment">
+
+        <argument
+            android:name="selectedDriver"
+            app:argType="com.udacity.capstone.formula1.dto.Driver"/>
+    </fragment>
 </navigation>

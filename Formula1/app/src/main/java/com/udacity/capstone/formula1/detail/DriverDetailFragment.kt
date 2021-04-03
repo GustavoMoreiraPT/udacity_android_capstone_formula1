@@ -17,6 +17,10 @@ class DriverDetailFragment : Fragment() {
         val binding = FragmentDetailDriverBinding.inflate(inflater)
         binding.lifecycleOwner = this
 
+        val driver = DriverDetailFragmentArgs.fromBundle(requireArguments()).selectedDriver
+
+        binding.driver = driver
+
         return binding.root
     }
 }

@@ -13,10 +13,10 @@ private const val BASE_URL = "http://ergast.com/api/f1/"
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
 interface F1Gateway {
-    @GET("2021/drivers")
+    @GET("2021/drivers.json")
     suspend fun getDrivers(): String
 
-    @GET("2021/constructors")
+    @GET("2021/constructors.json")
     suspend fun getConstructors(): String
 }
 

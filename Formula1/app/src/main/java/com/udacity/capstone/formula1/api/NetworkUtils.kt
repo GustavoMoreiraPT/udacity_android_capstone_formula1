@@ -5,17 +5,19 @@ import com.udacity.capstone.formula1.dto.Driver
 import org.json.JSONObject
 
 fun parseConstructorsJsonResult(jsonResult: JSONObject): List<Constructor> {
-    val constructorsJson = jsonResult.getJSONObject("MRData")
+    val wrapperJson = jsonResult.getJSONObject("MRData")
 
     val constructorsList = ArrayList<Constructor>()
 
-    val constructorsJsonArray = constructorsJson.getJSONArray("ConstructorsTable")
+    val constructorsJson = wrapperJson.getJSONObject("ConstructorTable")
+
+    val constructorsJsonArray = constructorsJson.getJSONArray("Constructors")
 
     for (i in 0 until constructorsJsonArray.length()) {
         val constructorJson = constructorsJsonArray.getJSONObject(i)
 
-        val name = constructorJson.getString("Name")
-        val nationality = constructorJson.getString("Nationality")
+        val name = constructorJson.getString("name")
+        val nationality = constructorJson.getString("nationality")
         val url = constructorJson.getString("url")
 
         val constructor = Constructor(0, name, nationality, url)
@@ -26,11 +28,13 @@ fun parseConstructorsJsonResult(jsonResult: JSONObject): List<Constructor> {
 }
 
 fun parseDriversJsonResult(jsonResult: JSONObject): List<Driver> {
-    val driversJson = jsonResult.getJSONObject("MRData")
+    val wrapperJson = jsonResult.getJSONObject("MRData")
 
     val driversList = ArrayList<Driver>()
 
-    val driversJsonArray = driversJson.getJSONArray("DriversTable")
+    val driversJson = wrapperJson.getJSONObject("DriverTable")
+
+    val driversJsonArray = driversJson.getJSONArray("Drivers")
 
     for (i in 0 until driversJsonArray.length()) {
         val driversJson = driversJsonArray.getJSONObject(i)
@@ -38,11 +42,11 @@ fun parseDriversJsonResult(jsonResult: JSONObject): List<Driver> {
         val driverId = driversJson.getString("driverId")
         val code = driversJson.getString("code")
         val url = driversJson.getString("url")
-        val permanentNumber = driversJson.getInt("PermanentNumber")
-        val givenName = driversJson.getString("GivenName")
-        val familyName = driversJson.getString("FamilyName")
-        val dateOfBirth = driversJson.getString("DateOfBirth")
-        val nationality = driversJson.getString("Nationality")
+        val permanentNumber = driversJson.getInt("permanentNumber")
+        val givenName = driversJson.getString("givenName")
+        val familyName = driversJson.getString("familyName")
+        val dateOfBirth = driversJson.getString("dateOfBirth")
+        val nationality = driversJson.getString("nationality")
 
         val driver = Driver(
             0,

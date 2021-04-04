@@ -12,49 +12,48 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/app_background">
+        android:background="@color/app_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
-            android:id="@+id/activity_constructor_main_image_of_day"
+
+        <ImageView
+            android:id="@+id/activity_main_constructor_image_of_the_day"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{viewModel.constructorOfWeek}"
+            android:contentDescription="@{viewModel.constructorOfWeek}"
+            app:srcCompat="@drawable/placeholder_picture_of_day"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-            <ImageView
-                android:id="@+id/activity_main_constructor_image_of_the_day"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                app:imageUrl="@{viewModel.constructorOfWeek}"
-                android:contentDescription="@{viewModel.constructorOfWeek}"
-                app:srcCompat="@drawable/placeholder_picture_of_day"/>
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_gravity="bottom"
-                android:background="#55010613"
-                android:text="@string/constructor_of_the_week" />
-        </FrameLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_gravity="bottom"
+            android:background="#55010613"
+            android:text="@string/constructor_of_the_week"
+            app:layout_constraintTop_toBottomOf="@id/activity_main_constructor_image_of_the_day"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/constructor_recycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_constructor_main_image_of_day"
+            app:layout_constraintStart_toStartOf="@id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="0.0" />
 
         <ProgressBar

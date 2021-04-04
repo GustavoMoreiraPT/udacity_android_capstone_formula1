@@ -34,7 +34,7 @@ class DriverAdapter(val clickListener: DriverListener) : ListAdapter<DataItemDri
         adapterScope.launch {
             val items = when (list) {
                 null -> listOf(DataItemDriver.Header)
-                else -> listOf(DataItemDriver.Header) + list.map { DataItemDriver.DriverItemDriver(it) }
+                else -> list.map { DataItemDriver.DriverItemDriver(it) }
             }
             withContext(Dispatchers.Main) {
                 submitList(items)

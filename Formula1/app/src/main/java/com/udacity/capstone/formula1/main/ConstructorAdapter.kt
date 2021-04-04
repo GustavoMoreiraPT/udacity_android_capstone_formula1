@@ -34,7 +34,7 @@ class ConstructorAdapter(val clickListener: ConstructorListener) : ListAdapter<D
         adapterScope.launch {
             val items = when (list) {
                 null -> listOf(DataItem.Header)
-                else -> listOf(DataItem.Header) + list.map { DataItem.ConstructorItem(it) }
+                else -> list.map { DataItem.ConstructorItem(it) }
             }
             withContext(Dispatchers.Main) {
                 submitList(items)

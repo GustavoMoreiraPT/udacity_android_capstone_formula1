@@ -32,77 +32,72 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constructor_symbol_image">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/driver_code_symbol"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/driver_code"
-                        android:textColor="@color/default_text_color" />
-
-                    <TextView
-                        android:id="@+id/constructor_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="@{driver.code}"
-                        android:textColor="@color/default_text_color"
-                        tools:text="VET" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/driver_number"
-                            android:textColor="@color/default_text_color" />
-
-                        <TextView
-                            android:id="@+id/driver_number"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:textColor="@color/default_text_color"
-                            app:permanentNumber="@{driver.permanentNumber}"
-                            tools:text="25.126 au" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/help_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        app:srcCompat="@drawable/ic_help_circle"
-                        tools:ignore="VectorDrawableCompat" />
-
-                </LinearLayout>
+                    android:text="@string/driver_code"
+                    android:textColor="@color/default_text_color"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/constructor_name"/>
 
                 <TextView
+                    android:id="@+id/constructor_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@{driver.code}"
+                    android:textColor="@color/default_text_color"
+                    tools:text="VET"
+                    app:layout_constraintTop_toBottomOf="@id/driver_code_symbol"
+                    app:layout_constraintBottom_toTopOf="@id/driver_number_holder"/>
+
+                <TextView
+                    android:id="@+id/driver_number_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/driver_number"
+                    android:textColor="@color/default_text_color"
+                    app:layout_constraintTop_toBottomOf="@id/constructor_name"
+                    app:layout_constraintBottom_toTopOf="@id/driver_number"/>
+
+                <TextView
+                    android:id="@+id/driver_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/default_text_color"
+                    app:permanentNumber="@{driver.permanentNumber}"
+                    tools:text="25.126 au"
+                    app:layout_constraintTop_toBottomOf="@id/driver_number_holder"
+                    app:layout_constraintBottom_toTopOf="@id/driver_given_name_placeholder"/>
+
+                <ImageView
+                    android:id="@+id/help_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:layout_marginRight="30dp"
+                    app:srcCompat="@drawable/ic_help_circle"
+                    tools:ignore="VectorDrawableCompat"
+                    app:layout_constraintLeft_toRightOf="@id/driver_number"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/driver_number_holder"/>
+
+                <TextView
+                    android:id="@+id/driver_given_name_placeholder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/driver_given_name"
-                    android:textColor="@color/default_text_color" />
+                    android:textColor="@color/default_text_color"
+                    app:layout_constraintTop_toBottomOf="@id/driver_number"
+                    app:layout_constraintBottom_toTopOf="@id/driver_given_name"/>
 
                 <TextView
                     android:id="@+id/driver_given_name"
@@ -111,14 +106,19 @@
                     android:layout_marginTop="4dp"
                     android:textColor="@color/default_text_color"
                     android:text="@{driver.givenName}"
-                    tools:text="Sebastian" />
+                    tools:text="Sebastian"
+                    app:layout_constraintTop_toBottomOf="@id/driver_given_name_placeholder"
+                    app:layout_constraintBottom_toTopOf="@id/driver_family_name_placeholder"/>
 
                 <TextView
+                    android:id="@+id/driver_family_name_placeholder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/driver_family_name"
-                    android:textColor="@color/default_text_color" />
+                    android:textColor="@color/default_text_color"
+                    app:layout_constraintTop_toBottomOf="@id/driver_given_name"
+                    app:layout_constraintBottom_toTopOf="@id/driver_family_name"/>
 
                 <TextView
                     android:id="@+id/driver_family_name"
@@ -127,14 +127,19 @@
                     android:layout_marginTop="4dp"
                     android:textColor="@color/default_text_color"
                     android:text="@{driver.familyName}"
-                    tools:text="Vettel" />
+                    tools:text="Vettel"
+                    app:layout_constraintTop_toBottomOf="@id/driver_family_name_placeholder"
+                    app:layout_constraintBottom_toTopOf="@id/driver_date_of_birth_placeholder"/>
 
                 <TextView
+                    android:id="@+id/driver_date_of_birth_placeholder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/driver_date_of_birth"
-                    android:textColor="@color/default_text_color" />
+                    android:textColor="@color/default_text_color"
+                    app:layout_constraintTop_toBottomOf="@id/driver_family_name"
+                    app:layout_constraintBottom_toTopOf="@id/driver_date_of_birth"/>
 
                 <TextView
                     android:id="@+id/driver_date_of_birth"
@@ -143,14 +148,19 @@
                     android:layout_marginTop="4dp"
                     android:textColor="@color/default_text_color"
                     android:text="@{driver.dateOfBirth}"
-                    tools:text="1988-03-02" />
+                    tools:text="1988-03-02"
+                    app:layout_constraintTop_toBottomOf="@id/driver_date_of_birth_placeholder"
+                    app:layout_constraintBottom_toTopOf="@id/driver_nationality_placeholder"/>
 
                 <TextView
+                    android:id="@+id/driver_nationality_placeholder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/driver_nationality"
-                    android:textColor="@color/default_text_color" />
+                    android:textColor="@color/default_text_color"
+                    app:layout_constraintTop_toBottomOf="@id/driver_date_of_birth"
+                    app:layout_constraintBottom_toTopOf="@id/driver_nationality"/>
 
                 <TextView
                     android:id="@+id/driver_nationality"
@@ -159,8 +169,11 @@
                     android:layout_marginTop="4dp"
                     android:textColor="@color/default_text_color"
                     android:text="@{driver.nationality}"
-                    tools:text="German" />
-            </LinearLayout>
+                    tools:text="German"
+                    app:layout_constraintTop_toBottomOf="@id/driver_nationality_placeholder"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
